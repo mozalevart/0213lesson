@@ -1,9 +1,10 @@
 import socket
 import json
 
-from common import ADDR
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect(ADDR)
-data = json.loads(s.recv(500).decode())
-print(f"got {data}, type {type(data)}" )
+while True:
+    text = input()
+    s.sendto(text.encode(), ('192.168.202.255', 10000))
+
+s.sendto(text.encode(), ('192.168.202.99', 10000))
