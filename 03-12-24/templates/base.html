@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='ru'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Ваша страница</title>
+    </head>
+    <body>
+        <h1>Страница</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th><a href="http://127.0.0.1:5000/new">Header 1</a></th>
+                    <th>Header 2</th>
+                    <th>Header 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{% for letter in name %}
+                        {%if name == 'Валера'%}<b>{% endif %} {{letter}} {%if name == 'Валера'%}</b>{% endif %}
+                        {%endfor%}
+                    </td>
+                    <td>{{name}}</td>
+                    <td>{{name}}</td>
+                </tr>
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{name}}</td>
+                    <td>{{name}}</td>
+                </tr>
+                <tr>
+                    <td>{{name}} </td>
+                    <td>{{now.strftime('%y %m %d %H:%M:%S')}}</td>
+                    <td>{{name}}</td>
+                </tr>
+            </tbody>
+        </table>
+        {%if name == 'Валера'%}{% block body %}<p>Текст</p>{% endblock %} {% else %} <p>Текст</p>{% endif %}
+    </body>
+</html>
